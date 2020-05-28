@@ -8,5 +8,5 @@ MySQL 5.7
 Administrador do banco de dados HeidSQL e Workbench
 Hibernate, JPA
 Apache Tomcat 9.0.22
-No client ainda estou analizando o que vou usar
+No client ainda estou usando Angular JS VERSÃO 1.5.8  e o Bootstrap VERSÃO 4.1.3
 GitHub
