@@ -1,0 +1,65 @@
+<meta  charset="UTF-8" />
+<div class="container">
+	   <div class="jumbotron">
+	      <!-- Campos  do formulário de contas a pagar -->
+	    	<form novalidate name = "frmContasPagar" >
+	    	     <h1>BEM VINDO AO CONTAS A PAGAR!!</h1>
+				<div class="row">
+					<div class="col-md-6">
+						<label>Data da compra: </label> <input type="date"
+							   class="form-control" name = "txtDataCompra"  placeholder="Data da compra"
+							   ng-model = "contasPagar.dataCompra" required/>
+							   <span ng-show = "frmContasPagar.txtDataCompra.$error.riquered && 
+							    	 frmContasPagar.txtDataCompra.$dirty">Campo data da compra é obrigatório</span>
+	                </div>
+	                <div class="col-md-6">
+						<label>Data de vencimento: </label> <input type="date" class="form-control" name = "txtDataVencimento"
+							placeholder="Data do vencimento" ng-model = "contasPagar.dataVencimento" required/>
+							<span ng-show = "frmContasPagar.txt.$error.riquered && frmContasPagar.txtDataVencimento.$dirty">
+							      Campo data do vencimento é obrigatório</span>
+					</div>
+					<div class="col-md-6">
+						<label>Valor a pagar: </label> <input type="number" class="form-control" name = "txtValorPagar"
+							placeholder="Valor a pagar" ng-model = "contasPagar.valorPagar" required/>
+							<span ng-show = "frmContasPagar.txtValorPagar.$error.riquered && frmContasPagar.txtValorPagar.$dirty">
+							      Campo valor a pagar é obrigatório</span>
+					</div>
+					<div class="col-md-6">
+						<label>Forma de pagamento: </label> <input type="text"
+							   class="form-control" name = "txtFormaPagamento" placeholder="Forma de pagamento"
+							   ng-model = "contasPagar.formaPagamento" required/>
+							   <span ng-show = "frmContasPagar.txtFormaPagamento.$error.riquered && frmContasPagar.txtFormaPagamento.$dirty">
+							         Campo Forma de Pagamento é obrigatório</span>
+					</div>
+					
+					<!-- Botão Salvar e botão cancelar -->
+					<button id="salvar" class="btn btn-lg btn-success btn-3d" 
+			                    ng-click = "salvarContasPaga()" ng-disabled = "frmContasPagar.$invalid">Salvar</button> 
+					<button id="cancelar" class="btn btn-lg  btn-warning btn-3d" 
+			                    ng-click = "cancelarAlteracaoContasPagar() " ng-disabled = "frmContasPagar.$invalid">Cancelar</button>
+				</div>
+			</form>
+			<!-- Exibe os dados de contas a pagar para o usuário em uma tabela -->		  
+		   <table class="table table-striped">
+		      <tr>
+		        <th>Data da compra</th>
+		        <th>Data do vencimento</th>
+		        <th>Valor a pagar</th>
+		        <th>Forma de pagamento</th>
+		      </tr>
+		      <tr ng-repeat = "contas in contasPagas">
+                <td>{{contas.dataCompra}}</td>
+                <td>{{contas.dataVencimento}}</td>
+                <td>{{contas.valorPagar}}</td>
+                <td>{{contas.formaPagamento}}</td>
+                <td><button class="btn btn-lg  btn-danger btn-block btn-3d" 
+			                ng-click = "excluirConta(conta)">Excluir</button></td>
+			    <td><button class="btn btn-lg  btn-info btn-block btn-3d" 
+			                ng-click = "alterarContas(conta)">Alterar</button></td>                        	      
+		      </tr>
+		   </table>
+	   </div>
+	   <div>
+	     <a href="static/templates/index.html"> Pagina principal</a>
+	   </div>
+	</div>

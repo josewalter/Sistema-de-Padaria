@@ -1,0 +1,109 @@
+<meta charset="UTF-8" />
+<div class="container">
+	<div class="jumbotron">
+		<!-- Campos  do formulário de cliente -->
+		<form novalidate name="frmCliente">
+			<div class="row">
+				<div class="col-md-12">
+					<label>Nome do Cliente: </label> <input type="text"
+						class="form-control" name="txtNomeCliente"
+						placeholder="Nome do cliente" ng-model="cliente.nomeCliente"
+						required /> <span
+						ng-show="frmCliente.txtNomeCliente.$error.riquered &&
+							         frmCliente.txtNomeCliente.$dirty">Campo
+						nome obrigatório</span>
+				</div>
+				<div class="col-md-6">
+					<label>Endereço: </label> <input type="text" class="form-control"
+						name="txtEndereco" placeholder="Endereço"
+						ng-model="cliente.endereco" required /> <span
+						ng-show="frmCliente.txt.$error.riquered && frmCliente.txtEndereco.$dirty">Campo
+						endereço obrigatório</span>
+				</div>
+				<div class="col-md-6">
+					<label>Bairro: </label> <input type="text" class="form-control"
+						name="txtBairro" placeholder="Bairro" ng-model="cliente.bairro"
+						required /> <span
+						ng-show="frmCliente.txtBairro.$error.riquered && frmCliente.txtBairro.$dirty">Campo
+						bairro obrigatório</span>
+				</div>
+				<div class="col-md-6">
+					<label>Cidade: </label> <input type="text" class="form-control"
+						name="txtCidade" placeholder="Nome da cidade"
+						ng-model="cliente.cidade" required /> <span
+						ng-show="frmCliente.txtCidade.$error.riquered && frmCliente.txtCidade.$dirty">Campo
+						cidade obrigatório</span>
+				</div>
+				<div class="col-md-6">
+					<label>Uf: </label> <input type="text" class="form-control"
+						name="txtUf" placeholder="Uf" ng-model="cliente.uf" required /> <span
+						ng-show="frmCliente.txtUf.$error.riquered && frmCliente.txtUf.$dirty">Campo
+						UF obrigatório</span>
+				</div>
+				<div class="col-md-6">
+					<label>CNPJ: </label> <input type="text" class="form-control"
+						name="txCnpj" placeholder="CNPJ" ng-model="cliente.cnpj" required />
+					<span
+						ng-show="frmCliente.txtCnpj.$error.riquered && frmCliente.txtCnpj.$dirty">Campo
+						CNPJ obrigatório</span>
+				</div>
+				<div class="col-md-6">
+					<label>Telefone comercial: </label> <input type="tel"
+						name="txtTelefone" class="form-control"
+						placeholder="Telefone comercial"
+						ng-model="cliente.telefoneComercial" required /> <span
+						ng-show="frmCliente.txtTelefone.$error.riquered && frmCliente.txtTelefone.$dirty">Campo
+						telefone comercial obrigatório</span>
+				</div>
+				<div class="col-md-6">
+					<label>Celular: </label> <input type="tel" class="form-control"
+						name="txtCelular" placeholder="Celular" ng-model="cliente.celular"
+						required /> <span
+						ng-show="frmCliente.txtCelular.$error.riquered && frmCliente.txtCelular.$dirty">Campo
+						celular obrigatório</span>
+				</div>
+				<div class="col-md-6">
+					<label>Email: </label> <input type="email" class="form-control"
+						name="txEmail" placeholder="Email" ng-model="cliente.email"
+						required /> <span
+						ng-show="frmCliente.txtEmail.$error.riquered && frmCliente.txtEmail.$dirty">Campo
+						email obrigatório</span> <span ng-show="frmCliente.txtEmail.$error.email">Email
+						inválido</span>
+				</div>
+				<!-- Botão Salvar e botão cancelar -->
+				<button id="salvar" class="btn btn-lg btn-success btn-3d"
+					ng-click="salvarCliente()" ng-disabled="frmCliente.$invalid">Salvar</button>
+				<button id="cancelar" class="btn btn-lg  btn-warning btn-3d"
+					ng-click="cancelarAlteracaoCliente() "
+					ng-disabled="frmCliente.$invalid">Cancelar</button>
+			</div>
+		</form>
+		<!-- Exibe os dados do cliente para o usuário em uma tabela -->
+		<table class="table table-striped">
+			<tr>
+				<th>Nome do cliente</th>
+				<th>Endereço</th>
+				<th>Bairro</th>
+				<th>Uf</th>
+				<th>CNPJ</th>
+				<th>Telefone comercial</th>
+				<th>Celular</th>
+				<th>Email</th>
+			</tr>
+			<tr ng-repeat="cli in clientes">
+				<td>{{cli.nomeCliente}}</td>
+				<td>{{cli.endereco}}</td>
+				<td>{{cli.bairro}}</td>
+				<td>{{cli.uf}}</td>
+				<td>{{cli.cnpj}}</td>
+				<td>{{cli.telefoneComercial}}</td>
+				<td>{{cli.celular}}</td>
+				<td>{{cli.email}}</td>
+				<td><button class="btn btn-lg  btn-danger btn-block btn-3d"
+						ng-click="excluirCliente(cli)">Excluir</button></td>
+				<td><button class="btn btn-lg  btn-info btn-block btn-3d"
+						ng-click="alterarCliente(cli)">Alterar</button></td>
+			</tr>
+		</table>
+	</div>
+</div>
