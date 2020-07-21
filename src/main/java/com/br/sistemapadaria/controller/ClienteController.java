@@ -17,7 +17,7 @@ import com.br.sistemapadaria.model.Cliente;
 import com.br.sistemapadaria.service.ClienteService;
 
 /*
- * Descrição: Entidade Cliente Controller
+ * Descrição: Classe Cliente Controller
  * Data: 01/1/2020  16:14
  * Autor: José Walter
  */

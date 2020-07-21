@@ -25,7 +25,7 @@ public class ContasPagar {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	@Column(name = "contas_pagar_codigo")
-	private Long codigoContasReceber;
+	private Long codigoContasPagar;
 	
 	@Column(name = "contas_pagar_data_compra", length = 10, nullable = false)
 	private Date dataCompra;
@@ -38,7 +38,7 @@ public class ContasPagar {
 	
 	@Column(name = "contas_pagar_forma_pagamento", length = 30, nullable = false)
 	private String formaPagamento;
-	/*
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "tbl_fornecedor_for_codigo", referencedColumnName = "for_codigo", nullable = false)
 	private Fornecedor fornecedor;
@@ -46,7 +46,7 @@ public class ContasPagar {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "tbl_produto_pro_codigo", referencedColumnName = "pro_codigo", nullable = false)
 	private Produto produto;
-	*/
+	
 //======================================================================================================================	
 	  //Construtor builder
 	public ContasPagar() {
@@ -55,10 +55,10 @@ public class ContasPagar {
 
 //======================================================================================================================	
 	  //Construtor and fields
-	public ContasPagar(Long codigoContasReceber, Date dataCompra, Date dataVencimento, Double valorReceber,
+	public ContasPagar(Long codigoContasPagar, Date dataCompra, Date dataVencimento, Double valorReceber,
 			String formaPagamento) {
 		super();
-		this.codigoContasReceber = codigoContasReceber;
+		this.codigoContasPagar = codigoContasPagar;
 		this.dataCompra = dataCompra;
 		this.dataVencimento = dataVencimento;
 		this.valorReceber = valorReceber;
@@ -68,12 +68,12 @@ public class ContasPagar {
 
 //======================================================================================================================	
 	  //Getters and Setters	
-	public Long getCodigoContasReceber() {
-		return codigoContasReceber;
+	public Long getCodigoContasPagar() {
+		return codigoContasPagar;
 	}
 
-	public void setCodigoContasReceber(Long codigoContasReceber) {
-		this.codigoContasReceber = codigoContasReceber;
+	public void setCodigoContasPagar(Long codigoContasPagar) {
+		this.codigoContasPagar = codigoContasPagar;
 	}
 
 	public Date getDataCompra() {
