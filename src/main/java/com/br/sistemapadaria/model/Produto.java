@@ -1,14 +1,11 @@
 package com.br.sistemapadaria.model;
 
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 /*
  * Descrição: Entidade produto
@@ -24,25 +21,22 @@ public class Produto {
 	@Column(name = "pro_codigo")
 	private Long   codigoProduto;
 	
-	@NotBlank(message="Por favor preencha o campo nome")
-	@Column(name = "pro_nome", length = 25, nullable = false)
+	@Column(name = "pro_nome", length = 50, nullable = false)
 	private String nomeProduto;
 	
-	@NotBlank(message="Por favor preencha o campo descrição do produto")
 	@Column(name = "pro_descricao", length = 35, nullable = false)
 	private String descricao;
 	
-	@NotBlank(message="Por favor preencha o campo quantidade do produto")
 	@Column(name = "pro_quantidade", length = 5, nullable = false)
-	private int    quantidade;
+	private Integer quantidade;
 	
-	@NotBlank(message="Por favor preencha o campo data de entrada")
+	//@JsonFormat(pattern="dd/MM/yyyy", shape = Shape.STRING)
 	@Column(name = "pro_data_entrada", length = 10, nullable = false)
-	private LocalDate dataEntrada;
+	private String dataEntrada;
 	
-	@NotBlank(message="Por favor preencha o campo data de saída")
+	//@JsonFormat(pattern="dd/MM/yyyy", shape = Shape.STRING)
 	@Column(name = "pro_data_saida", length = 10, nullable = false)
-	private LocalDate dataSaida;
+	private String dataSaida;
 
 	//======================================================================================================================	
 	  //Construtor builder
@@ -52,11 +46,7 @@ public class Produto {
 
 	//======================================================================================================================	
 	  //Construtor and fields
-	public Produto(Long codigoProduto, @NotBlank(message = "Por favor preencha o campo nome") String nomeProduto,
-			@NotBlank(message = "Por favor preencha o campo descrição do produto") String descricao,
-			@NotBlank(message = "Por favor preencha o campo quantidade do produto") int quantidade,
-			@NotBlank(message = "Por favor preencha o campo data de entrada") LocalDate dataEntrada,
-			@NotBlank(message = "Por favor preencha o campo data de saída") LocalDate dataSaida) {
+	public Produto(Long codigoProduto, String nomeProduto, String descricao, Integer quantidade, String dataEntrada, String dataSaida) {
 		super();
 		this.codigoProduto = codigoProduto;
 		this.nomeProduto = nomeProduto;
@@ -65,8 +55,7 @@ public class Produto {
 		this.dataEntrada = dataEntrada;
 		this.dataSaida = dataSaida;
 	}
-	
-	
+		
 	//======================================================================================================================	
 	  //Getters and Setters	
 	public Long getCodigoProduto() {
@@ -93,27 +82,27 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
-	public int getQuantidade() {
+	public Integer getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(int quantidade) {
+	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
 
-	public LocalDate getDataEntrada() {
+	public String getDataEntrada() {
 		return dataEntrada;
 	}
 
-	public void setDataEntrada(LocalDate dataEntrada) {
+	public void setDataEntrada(String dataEntrada) {
 		this.dataEntrada = dataEntrada;
 	}
 
-	public LocalDate getDataSaida() {
+	public String getDataSaida() {
 		return dataSaida;
 	}
 
-	public void setDataSaida(LocalDate dataSaida) {
+	public void setDataSaida(String dataSaida) {
 		this.dataSaida = dataSaida;
 	}
 

@@ -1,9 +1,10 @@
 <meta  charset="UTF-8" />
-<div class="container">
-	   <div class="jumbotron">
+<div class="container" id="container">
+	   <div id="jumbo" class="jumbotron">
 	      <!-- Campos  do formulário de clientes -->
 	    	<form novalidate name = "frmCliente" >
 	    	    <h1>BEM VINDO AO CADASTRO DE CLIENTES!!</h1>
+	    	    <hr/>
 				<div class="row">
 					<div class="col-md-12">
 						<label>Nome do cliente: </label> <input type="text"
@@ -13,83 +14,88 @@
 	                </div>
 	                <div class="col-md-6">
 						<label>Endereço: </label> <input type="text" class="form-control" name = "txtEndereco"
-							placeholder="Endereço" ng-model = "cliente.endereco" required/>
+							placeholder="Endereço" ng-model = "cliente.enderecoCliente" required/>
 							<span ng-show = "frmCliente.txt.$error.riquered && frmCliente.txtEndereco.$dirty">Campo endereço obrigatório</span>
 					</div>
 					<div class="col-md-6">
 						<label>Bairro: </label> <input type="text" class="form-control" name = "txtBairro"
-							placeholder="Bairro" ng-model = "cliente.bairro" required/>
+							placeholder="Bairro" ng-model = "cliente.bairroCliente" required/>
 							<span ng-show = "frmCliente.txtBairro.$error.riquered && frmCliente.txtBairro.$dirty">Campo bairro obrigatório</span>
 					</div>
 					<div class="col-md-6">
 						<label>Cidade: </label> <input type="text"
 							   class="form-control" name = "txtCidade" placeholder="Nome da cidade"
-							   ng-model = "cliente.cidade" required/>
+							   ng-model = "cliente.cidadeCliente" required/>
 							   <span ng-show = "frmCliente.txtCidade.$error.riquered && frmCliente.txtCidade.$dirty">Campo cidade obrigatório</span>
 					</div>
 					<div class="col-md-6">
 						<label>Uf: </label> <input type="uf" class="form-control" name = "txtUf"
-							   placeholder="Uf" ng-model = "cliente.uf" required/>
+							   placeholder="Uf" ng-model = "cliente.ufCliente" required/>
 							   <span ng-show = "frmCliente.txtUf.$error.riquered && frmCliente.txtUf.$dirty">Campo UF obrigatório</span>
 					</div>
 					<div class="col-md-6">
+						<label>CEP: </label> <input type="text" class="form-control" name = "txCep"
+							   placeholder="CEP" ng-model = "cliente.cepCliente" required/>
+							   <span ng-show = "frmCliente.txtCep.$error.riquered && frmCliente.txtCep.$dirty">Campo CEP obrigatório</span>
+					</div>
+					<div class="col-md-6">
 						<label>CPF: </label> <input type="text" class="form-control" name = "txCpf"
-							   placeholder="CPF" ng-model = "cliente.cpf" required/>
+							   placeholder="CPF" ng-model = "cliente.cpfCliente" required/>
 							   <span ng-show = "frmCliente.txtCpf.$error.riquered && frmCliente.txtCpf.$dirty">Campo CPF obrigatório</span>
 					</div>
 					<div class="col-md-6">
 						<label>Telefone comercial: </label> <input type="tel" name = "txtTelefone"
-							   class="form-control" placeholder="Telefone comercial"
-							   ng-model = "cliente.telefoneComercial" required/>
+							   class="form-control" placeholder="Telefone residêncial"
+							   ng-model = "cliente.telefoneResidencialCliente" required/>
 							   <span ng-show = "frmCliente.txtTelefone.$error.riquered && frmCliente.txtTelefone.$dirty">Campo telefone comercial obrigatório</span>
 					</div>
 					<div class="col-md-6">
 						<label>Celular: </label> <input type="tel" class="form-control" name = "txtCelular"
-							   placeholder="Celular" ng-model = "cliente.celular" required/>
+							   placeholder="Celular" ng-model = "cliente.celularCliente" required/>
 							   <span ng-show = "frmCliente.txtCelular.$error.riquered && frmCliente.txtCelular.$dirty">Campo celular obrigatório</span>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-12">
 						<label>Email: </label> <input type="email" class="form-control" name = "txEmail"
-							   placeholder="Email" ng-model = "cliente.email" required/>
+							   placeholder="Email" ng-model = "cliente.emailCliente" required/>
 							   <span ng-show = "frmCliente.txtEmail.$error.riquered && frmCliente.txtEmail.$dirty">Campo email  obrigatório</span>
 							   <span ng-show = "frmCliente.txtEmail.$error.email">Email inválido</span>      
 					</div>
-					<!-- Botão Slavar e botão cancelar -->
-					<button id="salvar" class="btn btn-lg btn-success btn-3d" 
-			                    ng-click = "salvarCliente()" ng-disabled = "frmCliente.$invalid">Salvar</button> 
-					<button id="cancelar" class="btn btn-lg  btn-warning btn-3d" 
-			                    ng-click = "cancelarAlteracaoCliente() " ng-disabled = "frmCliente.$invalid">Cancelar</button>
+					<div id="salvarCancelar">
+						<!-- Botão Slavar e botão cancelar -->
+						<button id="salvar" class="btn btn-lg btn-success btn-3d" 
+				                    ng-click = "salvarCliente(cliente)" ng-disabled = "frmCliente.$invalid">Salvar</button> 
+						<button id="cancelar" class="btn btn-lg  btn-warning btn-3d" 
+				                    ng-click = "cancelarAlteracaoCliente(cliente) " ng-disabled = "frmCliente.$invalid">Cancelar</button>
+				    </div>
 				</div>
 			</form>
+			<br/>
+			<hr/>
 			<!-- Exibe os dados do cliente para o usuário em uma tabela -->		  
 		   <table class="table table-striped">
 		      <tr>
 		        <th>Nome do cliente</th>
 		        <th>Endereço</th>
 		        <th>Bairro</th>
-		        <th>Uf</th>
-		        <th>CPF</th>
-		        <th>Telefone comercial</th>
+		        <th>Cidade</th>
 		        <th>Celular</th>
 		        <th>Email</th>
 		      </tr>
-		      <tr ng-repeat = "cli in clientes">
-                <td>{{cli.nomeCliente}}</td>
-                <td>{{cli.endereco}}</td>
-                <td>{{cli.bairro}}</td>
-                <td>{{cli.uf}}</td>
-                <td>{{cli.cpf}}</td>
-                <td>{{cli.telefoneComercial}}</td>
-                <td>{{cli.celular}}</td>
-                <td>{{cli.email}}</td>	
+		      <tr ng-repeat = "cliente in clientes">
+                <td>{{cliente.nomeCliente}}</td>
+                <td>{{cliente.enderecoCliente}}</td>
+                <td>{{cliente.bairroCliente}}</td>
+                <td>{{cliente.cidadeCliente}}</td>
+                <td>{{cliente.celularCliente}}</td>
+                <td>{{cliente.emailCliente}}</td>	
                 <td><button class="btn btn-lg  btn-danger btn-block btn-3d" 
-			                ng-click = "excluirCliente(cli)">Excluir</button></td>
+			                ng-click = "excluirCliente(cliente)">Excluir</button></td>
 			    <td><button class="btn btn-lg  btn-info btn-block btn-3d" 
-			                ng-click = "alterarCliente(cli)">Alterar</button></td>                        	      
+			                ng-click = "alterarCliente(cliente)">Alterar</button></td>                        	      
 		      </tr>
 		   </table>
 	   </div>
 	   <div>
-	     <a href="static/templates/index.html"> Pagina principal</a>
+	     <a href="static/templates/index.html">Voltar para a pagina principal</a>
 	   </div>
 	</div>

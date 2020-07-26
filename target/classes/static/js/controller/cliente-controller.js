@@ -18,43 +18,45 @@ appSistemaPadaria.controller ("clienteController", function ($scope, $http){
 	};
 	
 	//Método salvar cliente
-	$scope.salvarCliente = function (){
+	$scope.salvarCliente = function (cliente){
 		$http({method:'POST', url:'http://localhost:8080/clientes', data:$scope.cliente})
 		.then(function (response){
-			//$scope.clientes.push(response.data);
-			carregarClientes();
-			$scope.cancelarAlteracaoCliente();
-			
+			$scope.clientes.push(response.data);
+			$scope.cancelarAlteracaoCliente(); //Esse comando limpa os campos na tela
+			alert("O cliente foi salvo com sucesso!!");
 						            	 
 			} , function(response){
 			console.log(response.data);
 			console.log(response.status);
+			alert("Erro ao salvar o cliente!!");
 			
 		});
 	};
 	
 	//Método excluir da parte cliente
 	$scope.excluirCliente = function (cliente){
-		$http({method:'DELETE', url:'http://localhost:8080/clientes/'+cliente.id})
+		$http({method:'DELETE', url:'http://localhost:8080/clientes/'+cliente.codigoCliente})
 		.then(function (response){
-			pos = $scope.clientes.indexOf(cliente);
-			$scope.clientes.splice(pos , 1);
+			posicaoCliente = $scope.clientes.indexOf(cliente);
+			$scope.clientes.splice(posicaoCliente , 1);
+			confirm("Deseja realmente excluir esse cliente?");
 						            	 
 			} , function(response){
 			console.log(response.data);
 			console.log(response.status);
+			alert("Erro ao excluir o cliente!!");
 			
 		});
 	};
 	
 	//Método alterar cliente
-	$scope.alterarCliente = function (forn){
-		$scope.cliente = angular.copy(cli);
-				
+	$scope.alterarCliente = function (cliente){
+		$scope.cliente = angular.copy(cliente);
+						
 	};
 	
 	//Método cancelar cliente
-	$scope.cancelarAlteracaoCliente = function (){
+	$scope.cancelarAlteracaoCliente = function (cliente){
 		$scope.cliente={};
 		
 	};
