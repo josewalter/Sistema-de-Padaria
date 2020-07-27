@@ -1,11 +1,16 @@
 package com.br.sistemapadaria.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 /*
  * Descrição: Entidade produto
@@ -31,12 +36,12 @@ public class Produto {
 	private Integer quantidade;
 	
 	//@JsonFormat(pattern="dd/MM/yyyy", shape = Shape.STRING)
-	@Column(name = "pro_data_entrada", length = 10, nullable = false)
-	private String dataEntrada;
+	//@Column(name = "pro_data_entrada", length = 10, nullable = false)
+	private LocalDate dataEntrada;
 	
 	//@JsonFormat(pattern="dd/MM/yyyy", shape = Shape.STRING)
-	@Column(name = "pro_data_saida", length = 10, nullable = false)
-	private String dataSaida;
+	//@Column(name = "pro_data_saida", length = 10, nullable = false)
+	private LocalDate dataSaida;
 
 	//======================================================================================================================	
 	  //Construtor builder
@@ -46,7 +51,7 @@ public class Produto {
 
 	//======================================================================================================================	
 	  //Construtor and fields
-	public Produto(Long codigoProduto, String nomeProduto, String descricao, Integer quantidade, String dataEntrada, String dataSaida) {
+	public Produto(Long codigoProduto, String nomeProduto, String descricao, Integer quantidade,LocalDate dataEntrada, LocalDate dataSaida) {
 		super();
 		this.codigoProduto = codigoProduto;
 		this.nomeProduto = nomeProduto;
@@ -90,19 +95,19 @@ public class Produto {
 		this.quantidade = quantidade;
 	}
 
-	public String getDataEntrada() {
+	public LocalDate getDataEntrada() {
 		return dataEntrada;
 	}
 
-	public void setDataEntrada(String dataEntrada) {
+	public void setDataEntrada(LocalDate dataEntrada) {
 		this.dataEntrada = dataEntrada;
 	}
 
-	public String getDataSaida() {
+	public LocalDate getDataSaida() {
 		return dataSaida;
 	}
 
-	public void setDataSaida(String dataSaida) {
+	public void setDataSaida(LocalDate dataSaida) {
 		this.dataSaida = dataSaida;
 	}
 

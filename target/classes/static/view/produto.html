@@ -1,0 +1,72 @@
+<meta  charset="UTF-8" />
+<div class="container" id="container">
+	   <div id="jumbo" class="jumbotron">
+	      <!-- Campos  do formulário de produtos -->
+	    	<form novalidate name = "frmProduto" >
+	    	    <h1>BEM VINDO AO CADASTRO DE PRODUTOS!!</h1>
+	    	    <hr/>
+				<div class="row">
+					<div class="col-md-12">
+						<label>Nome do produto: </label> <input type="text"
+							   class="form-control" name = "txtnomePorduto"  placeholder="Nome do produto"
+							   ng-model = "produto.nomeProduto" required/>
+							   <span ng-show = "frmProduto.txtNomeProduto.$error.riquered && frmProduto.txtNomeProduto.$dirty">Campo nome do produto é obrigatório</span>
+	                </div>
+	                <div class="col-md-6">
+						<label>Descrição: </label> <input type="text" class="form-control" name = "txtDescricao"
+							placeholder="Descrição" ng-model = "produto.descricao" required/>
+							<span ng-show = "frmProduto.txt.$error.riquered && frmProduto.txtDescricao.$dirty">Campo descrição é obrigatório</span>
+					</div>
+					<div class="col-md-6">
+						<label>Quantidade: </label> <input type="text" class="form-control" name = "txtQuantidade"
+							placeholder="Quantidade" ng-model = "produto.quantidade" required/>
+							<span ng-show = "frmProduto.txtQuantidade.$error.riquered && frmCProduto.txtQuantidade.$dirty">Campo quantidade é obrigatório</span>
+					</div>
+					<div class="col-md-6">
+						<label>Data de Entrada: </label> <input type="Date"
+							   class="form-control" name = "txtDataEntrada" placeholder="yyyy-MM-dd" min="01/01/2020" max="01/12/2020"
+							   ng-model = "produto.dataEntrada" required/>
+							   <span ng-show = "frmProduto.txtDataEntrada.$error.riquered && frmProduto.txtDataEntrada.$dirty">Campo data de entrada é obrigatório</span>
+					</div>
+					<div class="col-md-6">
+						<label>Data de Saída: </label> <input type="date" class="form-control" name = "txtDataSaida"
+							   placeholder="yyyy-MM-dd" min="01/01/2020" max="01/12/2020" ng-model = "produto.dataSaida" required/>
+							   <span ng-show = "frmProduto.txtDataSaida.$error.riquered && frmProduto.txtDataSaida.$dirty">Campo data de saída é obrigatório</span>
+					</div>
+					<div id="salvarCancelar">
+						<!-- Botão Slavar e botão cancelar -->
+						<button id="salvar" class="btn btn-lg btn-success btn-3d" 
+				                    ng-click = "salvarProduto(produto)" ng-disabled = "frmProduto.$invalid">Salvar</button> 
+						<button id="cancelar" class="btn btn-lg  btn-warning btn-3d" 
+				                    ng-click = "cancelarAlteracaoProduto(produto) " ng-disabled = "frmProduto.$invalid">Cancelar</button>
+				    </div>
+				</div>
+			</form>
+			<br/>
+			<hr/>
+			<!-- Exibe os dados do produto para o usuário em uma tabela -->		  
+		   <table class="table table-striped">
+		      <tr>
+		        <th>Nome do produto</th>
+		        <th>Descrição</th>
+		        <th>Quantidade</th>
+		        <th>Data de entrada</th>
+		        <th>Data de saída</th>
+		      </tr>
+		      <tr ng-repeat = "produto in produtos">
+                <td>{{produto.nomeProduto}}</td>
+                <td>{{produto.descricao}}</td>
+                <td>{{produto.quantidade}}</td>
+                <td>{{produto.dataEntrada}}</td>
+                <td>{{produto.dataSaida}}</td>
+                <td><button class="btn btn-lg  btn-danger btn-block btn-3d" 
+			                ng-click = "excluirProduto(produto)">Excluir</button></td>
+			    <td><button class="btn btn-lg  btn-info btn-block btn-3d" 
+			                ng-click = "alterarProduto(produto)">Alterar</button></td>                        	      
+		      </tr>
+		   </table>
+	   </div>
+	   <div>
+	     <a href="static/templates/index.html">Voltar para a pagina principal</a>
+	   </div>
+	</div>

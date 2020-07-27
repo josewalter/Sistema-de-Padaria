@@ -47,11 +47,7 @@ public class Fornecedor {
 	
 	@Column(name = "for_email", length = 35, nullable = false)
 	private String emailForncedor;
-	/*
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "tbl_fornecedor_for_codigo", referencedColumnName = "for_codigo", nullable = false)
-	private Fornecedor fornecedor;
-*/
+	
 //======================================================================================================================	
 	  //Construtor builder	
 	public Fornecedor() {

@@ -23,7 +23,7 @@ appSistemaPadaria.controller ("clienteController", function ($scope, $http){
 		.then(function (response){
 			$scope.clientes.push(response.data);
 			$scope.cancelarAlteracaoCliente(); //Esse comando limpa os campos na tela
-			alert("O cliente foi salvo com sucesso!!");
+			confirm("O cliente foi salvo com sucesso!!");
 						            	 
 			} , function(response){
 			console.log(response.data);
