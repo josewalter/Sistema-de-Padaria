@@ -1,0 +1,102 @@
+<meta  charset="UTF-8" />
+<div class="container" id="container">
+	   <div id="jumbo" class="jumbotron">
+	      <!-- Campos  do formulário de fornecedor -->
+	    	<form novalidate name = "frmFornecedor" >
+	    	    <h1>BEM VINDO AO CADASTRO DE FORNECEDOR!!</h1>
+	    	    <hr/>
+				<div class="row">
+					<div class="col-md-12">
+						<label>Nome do fornecedor: </label> <input type="text"
+							   class="form-control" name = "txtNomeFornecedor"  placeholder="Nome do fornecedor"
+							   ng-model = "fornecedor.nomeFornecedor" required/>
+							   <span ng-show = "frmFornecedor.txtNomeFornecedor.$error.riquered && frmFornecedor.txtNomeFornecedor.$dirty">Campo nome do fornecedor é obrigatório</span>
+	                </div>
+	                <div class="col-md-6">
+						<label>Endereço: </label> <input type="text" class="form-control" name = "txtEnderecoFornecedor"
+							placeholder="Endereço do fornecedor" ng-model = "fornecedor.enderecoFornecedor" required/>
+							<span ng-show = "frmFornecedor.txt.$error.riquered && frmFornecedor.txtEnderecoFornecedor.$dirty">Campo endereço do fornecedor é obrigatório</span>
+					</div>
+					<div class="col-md-6">
+						<label>Bairro: </label> <input type="text" class="form-control" name = "txtBairroFornecedor"
+							placeholder="Bairro do fornecedor" ng-model = "fornecedor.bairroFornecedor" required/>
+							<span ng-show = "frmFornecedor.txtBairroFornecedor.$error.riquered && frmFornecedor.txtBairro.$dirty">Campo bairro do fornecedor é obrigatório</span>
+					</div>
+					<div class="col-md-6">
+						<label>Cidade: </label> <input type="text"
+							   class="form-control" name = "txtCidadeFornecedor" placeholder="Nome da cidade do fornecedor"
+							   ng-model = "fornecedor.cidadeFornecedor" required/>
+							   <span ng-show = "frmFornecedor.txtCidadeFornecedor.$error.riquered && frmFornecedor.txtCidadeFornecedor.$dirty">Campo cidade do fornecedor é obrigatório</span>
+					</div>
+					<div class="col-md-6">
+						<label>Uf: </label> <input type="text" class="form-control" name = "txtUfFornecedor"
+							   placeholder="Uf fornecedor" ng-model = "fornecedor.ufFornecedor" required/>
+							   <span ng-show = "frmFornecedor.txtUfFornecedor.$error.riquered && frmFornecedor.txtUf.$dirty">Campo UF do fornecedor é obrigatório</span>
+					</div>
+					<div class="col-md-6">
+						<label>CEP: </label> <input type="text" class="form-control" name = "txCepFornecedor"
+							   placeholder="CEP do fornecedor" ng-model = "fornecedor.cepFornecedor" required/>
+							   <span ng-show = "frmFornecedor.txtCepFornecedor.$error.riquered && frmFornecedor.txtCep.$dirty">Campo CEP do fornecedor é obrigatório</span>
+					</div>
+					<div class="col-md-6">
+						<label>CNPJ: </label> <input type="text" class="form-control" name = "txCnpjFornecedor"
+							   placeholder="CNPJ do fornecedor" ng-model = "fornecedor.cnpjFornecedor" required/>
+							   <span ng-show = "frmFornecedor.txtCnpjFornecedor.$error.riquered && frmFornecedor.txtCnpjFornecedor.$dirty">Campo CNPJ do fornecedor é obrigatório</span>
+					</div>
+					<div class="col-md-6">
+						<label>Telefone comercial: </label> <input type="tel" name = "txtTelefoneComercialFornecedor"
+							   class="form-control" placeholder="Telefone comercial do fornecedor"
+							   ng-model = "fornecedor.telefoneComercialFornecedor" required/>
+							   <span ng-show = "frmFornecedor.txtTelefoneComercialFornecedor.$error.riquered && frmFornecedor.txtTelefone.$dirty">
+							   Campo telefone comercial do fornecedor é obrigatório</span>
+					</div>
+					<div class="col-md-6">
+						<label>Celular do fornecedor: </label> <input type="tel" class="form-control" name = "txtCelularFornecedor"
+							   placeholder="Celular do fornecedor" ng-model = "fornecedor.celularFornecedor" required/>
+							   <span ng-show = "frmFornecedor.txtCelularFornecedor.$error.riquered && frmFornecedor.txtCelularFornecedor.$dirty">Campo celular do fornecedor é obrigatório</span>
+					</div>
+					<div class="col-md-12">
+						<label>Email: </label> <input type="email" class="form-control" name = "txEmailFornecedor"
+							   placeholder="Email do fornecedor" ng-model = "fornecedor.emailFornecedor" required/>
+							   <span ng-show = "frmFornecedor.txtEmailFornecedor.$error.riquered && frmFornecedor.txtEmailFornecedor.$dirty">Campo email do fornecedor é  obrigatório</span>
+							   <span ng-show = "frmFornecedor.txtEmailFornecedor.$error.emailFornecedor">Email inválido</span>      
+					</div>
+					<div id="salvarCancelar">
+						<!-- Botão Slavar e botão cancelar -->
+						<button id="salvar" class="btn btn-lg btn-success btn-3d" 
+				                    ng-click = "salvarFornecedor(fornecedor)" ng-disabled = "frmFornecedor.$invalid">Salvar</button> 
+						<button id="cancelar" class="btn btn-lg  btn-warning btn-3d" 
+				                    ng-click = "cancelarAlteracaoFornecedor(fornecedor) " ng-disabled = "frmFornecedor.$invalid">Cancelar</button>
+				    </div>
+				</div>
+			</form>
+			<br/>
+			<hr/>
+			<!-- Exibe os dados do fornecedor para o usuário em uma tabela -->		  
+		   <table class="table table-striped">
+		      <tr>
+		        <th>Nome do fornecedor</th>
+		        <th>Endereço</th>
+		        <th>Bairro</th>
+		        <th>Cidade</th>
+		        <th>Celular</th>
+		        <th>Email</th>
+		      </tr>
+		      <tr ng-repeat = "fornecedor in fornecedores">
+                <td>{{fornecedor.nomeFornecedor}}</td>
+                <td>{{fornecedor.enderecoFornecedor}}</td>
+                <td>{{fornecedor.bairroFornecedor}}</td>
+                <td>{{fornecedor.cidadeFornecedor}}</td>
+                <td>{{fornecedor.celularFornecedor}}</td>
+                <td>{{fornecedor.emailFornecedor}}</td>	
+                <td><button class="btn btn-lg  btn-danger btn-block btn-3d" 
+			                ng-click = "excluirFornecedor(fornecedor)">Excluir</button></td>
+			    <td><button class="btn btn-lg  btn-info btn-block btn-3d" 
+			                ng-click = "alterarFornecedor(fornecedor)">Alterar</button></td>                        	      
+		      </tr>
+		   </table>
+	   </div>
+	   <div>
+	     <a href="static/templates/index.html">Voltar para a pagina principal</a>
+	   </div>
+	</div>

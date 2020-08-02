@@ -46,28 +46,23 @@ public class ContasPagar {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "tbl_produto_pro_codigo", referencedColumnName = "pro_codigo", nullable = false)
 	private Produto produto;
-	
-//======================================================================================================================	
-	  //Construtor builder
+
 	public ContasPagar() {
 		
 	}
 
-//======================================================================================================================	
-	  //Construtor and fields
 	public ContasPagar(Long codigoContasPagar, Date dataCompra, Date dataVencimento, Double valorReceber,
-			String formaPagamento) {
+			String formaPagamento, Fornecedor fornecedor, Produto produto) {
 		super();
 		this.codigoContasPagar = codigoContasPagar;
 		this.dataCompra = dataCompra;
 		this.dataVencimento = dataVencimento;
 		this.valorReceber = valorReceber;
 		this.formaPagamento = formaPagamento;
-		
+		this.fornecedor = fornecedor;
+		this.produto = produto;
 	}
 
-//======================================================================================================================	
-	  //Getters and Setters	
 	public Long getCodigoContasPagar() {
 		return codigoContasPagar;
 	}
@@ -107,5 +102,91 @@ public class ContasPagar {
 	public void setFormaPagamento(String formaPagamento) {
 		this.formaPagamento = formaPagamento;
 	}
+
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+
+	@Override
+	public String toString() {
+		return "ContasPagar [codigoContasPagar=" + codigoContasPagar + ", dataCompra=" + dataCompra
+				+ ", dataVencimento=" + dataVencimento + ", valorReceber=" + valorReceber + ", formaPagamento="
+				+ formaPagamento + ", fornecedor=" + fornecedor + ", produto=" + produto + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigoContasPagar == null) ? 0 : codigoContasPagar.hashCode());
+		result = prime * result + ((dataCompra == null) ? 0 : dataCompra.hashCode());
+		result = prime * result + ((dataVencimento == null) ? 0 : dataVencimento.hashCode());
+		result = prime * result + ((formaPagamento == null) ? 0 : formaPagamento.hashCode());
+		result = prime * result + ((fornecedor == null) ? 0 : fornecedor.hashCode());
+		result = prime * result + ((produto == null) ? 0 : produto.hashCode());
+		result = prime * result + ((valorReceber == null) ? 0 : valorReceber.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ContasPagar other = (ContasPagar) obj;
+		if (codigoContasPagar == null) {
+			if (other.codigoContasPagar != null)
+				return false;
+		} else if (!codigoContasPagar.equals(other.codigoContasPagar))
+			return false;
+		if (dataCompra == null) {
+			if (other.dataCompra != null)
+				return false;
+		} else if (!dataCompra.equals(other.dataCompra))
+			return false;
+		if (dataVencimento == null) {
+			if (other.dataVencimento != null)
+				return false;
+		} else if (!dataVencimento.equals(other.dataVencimento))
+			return false;
+		if (formaPagamento == null) {
+			if (other.formaPagamento != null)
+				return false;
+		} else if (!formaPagamento.equals(other.formaPagamento))
+			return false;
+		if (fornecedor == null) {
+			if (other.fornecedor != null)
+				return false;
+		} else if (!fornecedor.equals(other.fornecedor))
+			return false;
+		if (produto == null) {
+			if (other.produto != null)
+				return false;
+		} else if (!produto.equals(other.produto))
+			return false;
+		if (valorReceber == null) {
+			if (other.valorReceber != null)
+				return false;
+		} else if (!valorReceber.equals(other.valorReceber))
+			return false;
+		return true;
+	}
+	
+    
 
 }

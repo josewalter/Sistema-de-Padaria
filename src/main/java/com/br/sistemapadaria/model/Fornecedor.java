@@ -54,19 +54,14 @@ public class Fornecedor {
 	
 	@Column(name = "for_email", length = 35, nullable = false)
 	private String emailFornecedor;
-	
-//======================================================================================================================	
-	  //Construtor builder	
+
 	public Fornecedor() {
 		
 	}
 
-//======================================================================================================================	
-	  //Construtor and fields	
 	public Fornecedor(Long codigoFornecedor, String nomeFornecedor, String enderecoFornecedor, String bairroFornecedor,
 			String cidadeFornecedor, String ufFornecedor, String cepFornecedor, String cnpjFornecedor,
-			String telefoneComercialFornecedor, String celularFornecedor, String emailFornecedor
-			) {
+			String telefoneComercialFornecedor, String celularFornecedor, String emailFornecedor) {
 		super();
 		this.codigoFornecedor = codigoFornecedor;
 		this.nomeFornecedor = nomeFornecedor;
@@ -79,16 +74,13 @@ public class Fornecedor {
 		this.telefoneComercialFornecedor = telefoneComercialFornecedor;
 		this.celularFornecedor = celularFornecedor;
 		this.emailFornecedor = emailFornecedor;
-		
 	}
 
-//======================================================================================================================	
-	  //Getters and Setters		
-	public long getCodigoFornecedor() {
+	public Long getCodigoFornecedor() {
 		return codigoFornecedor;
 	}
 
-	public void setCodigoFornecedor(long codigoFornecedor) {
+	public void setCodigoFornecedor(Long codigoFornecedor) {
 		this.codigoFornecedor = codigoFornecedor;
 	}
 
@@ -266,4 +258,6 @@ public class Fornecedor {
 			return false;
 		return true;
 	}
+	
+   
 }
