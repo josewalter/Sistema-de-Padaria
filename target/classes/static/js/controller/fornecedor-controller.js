@@ -19,9 +19,9 @@ appSistemaPadaria.controller ("fornecedorController", function ($scope, $http){
 	
 	//Método salvar fornecedor
 	$scope.salvarFornecedor = function (fornecedor){
-		$http({method:'POST', url:'http://localhost:8080/fornecedor', data:$scope.fornecedor})
+		$http({method:'POST', url:'http://localhost:8080/fornecedores', data:$scope.fornecedor})
 		.then(function (response){
-			$scope.fornecedor.push(response.data);
+			$scope.fornecedores.push(response.data);
 			$scope.cancelarAlteracaoFornecedor(); //Esse comando limpa os campos na tela
 			confirm("O fornecedor foi salvo com sucesso!!");
 						            	 
@@ -37,7 +37,7 @@ appSistemaPadaria.controller ("fornecedorController", function ($scope, $http){
 	$scope.excluirFornecedor = function (fornecedor){
 		$http({method:'DELETE', url:'http://localhost:8080/fornecedores/'+fornecedor.codigoFornecedor})
 		.then(function (response){
-			posicaoFornecedor = $scope.fornecedor.indexOf(fornecedor);
+			posicaoFornecedor = $scope.fornecedores.indexOf(fornecedor);
 			$scope.fornecedores.splice(posicaoFornecedor , 1);
 			confirm("Deseja realmente excluir esse fornecedor?");
 						            	 
